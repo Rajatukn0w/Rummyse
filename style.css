@@ -1,0 +1,593 @@
+/* 整个滚动条 */
+
+::-webkit-scrollbar {
+    width: 6px;
+    /* 设置滚动条的宽度 */
+}
+
+/* 滚动条轨道 */
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    /* 设置轨道为透明 */
+}
+
+/* 滚动条的滑块 */
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    /* 设置滑块的颜色，可以设置透明度 */
+}
+
+/* 当滑块悬停或活动时的样式 */
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+    /* 可以设置不同的颜色来表示悬停或活动状态 */
+}
+
+@font-face {
+    font-family: 'harmony-regular';
+    src: url('/website/font/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'harmony-bold';
+    src: url('/website/font/HarmonyOS_Sans_SC_Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'harmony-medium';
+    src: url('/website/font/HarmonyOS Sans SC Medium.ttf') format('truetype');
+}
+
+.navbar {
+    background-image: url("/website/image/bg_top.png");
+    padding-top: 0px;
+    padding-bottom: 0px;
+    z-index: 2;
+    height: 76px;
+}
+
+.navbar .nav-item .nav-link {
+    margin-right: 25px;
+    padding: 28px 0 28px 0;
+    font-size: 12px;
+    font-family: 'harmony-regular', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+.navbar .nav-item .nav-link.active,
+.navbar .nav-link {
+    color: #00fcff;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.px-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.no-js .owl-carousel,
+.owl-carousel.owl-loaded {
+    display: block;
+}
+
+.hero-slider {
+    position: relative;
+}
+
+.owl-carousel {
+    display: none;
+    width: 100%;
+    z-index: 1;
+}
+
+.owl-carousel,
+.owl-carousel .owl-item {
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+
+.owl-carousel .owl-stage-outer {
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.hero-slider .owl-dots {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bigTitle {
+    font-size: 24px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #ffffff;
+}
+
+.howToPlayText {
+    font-size: 14px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #00fcff;
+}
+
+@media (max-width: 768px) {
+    .zsy-img {
+        width: 100%;
+    }
+}
+
+.div-with-image-border {
+    border-top-width: 10px;
+    /* 边框宽度 */
+    border-image-source: url('/website/image/howToPlay/slots/kuang.png');
+    /* 边框图片路径 */
+    border-image-slice: 30;
+    /* 图片边框分割，可以是数值或者百分比 */
+    /*border-image-repeat: repeat; !* 如何填充边框图片 *!*/
+    border-image-outset: 5;
+    /* 边框图片超出边框宽度 */
+    border-image-width: 30px;
+    /* 边框图片宽度 */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .div-with-image-border {
+        border-image-width: 20px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}
+
+.box-img {
+    width: 50%;
+    height: 44px;
+    position: absolute;
+    top: -23px;
+    background-image: url("/website/image/howToPlay/slots/biaoti.png");
+    background-size: cover;
+    /* 背景图片覆盖整个div */
+}
+
+@media (max-width: 960px) {
+    .box-img {
+        height: 30px;
+        top: -16px;
+        width: 80%;
+    }
+}
+
+.box-img-text {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+    font-size: 24px;
+    color: #ffffff;
+    font-family: 'harmony-bold', sans-serif;
+}
+
+@media (max-width: 960px) {
+    .box-img-text {
+        font-size: 16px;
+        padding-left: 10px;
+    }
+}
+
+.box-content-img {
+    height: auto;
+    padding-top: 60px;
+    /*padding-bottom: 60px;*/
+}
+
+@media (max-width: 960px) {
+    .box-content-img {
+        width: 96%;
+        padding-top: 30px;
+        /*padding-bottom: 30px;*/
+    }
+}
+
+.howToPlayBoxText {
+    font-size: 16px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #00fcff;
+    display: flex;
+    width: 98%;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .howToPlayBoxText {
+        font-size: 14px;
+    }
+}
+
+.smallTitle {
+    font-size: 22px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #ffffff;
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .smallTitle {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 16px;
+    }
+}
+
+.howToPlayBoxLeft {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bowToPlayTitle {
+    /*padding-top: 60px;*/
+    /*padding-bottom: 10px;*/
+}
+
+.howToPlayBoxLeftText {
+    font-size: 16px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #00fcff;
+}
+
+.brandBoxText {
+    font-size: 14px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    max-height: 100px;
+    display: -webkit-box;
+    line-height: 25px;
+}
+
+@media (max-width: 768px) {
+    .brandBoxText {
+        display: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .howToPlayBoxLeftText {
+        font-size: 14px;
+    }
+}
+
+.pd-tb-10 {
+    /*padding-top: 10px;*/
+    padding-bottom: 20px;
+}
+
+.bg-dh-border {
+    border-top-width: 10px;
+    /* 边框宽度 */
+    border-image-source: url('/website/image/bg_daohang1.png');
+    /* 边框图片路径 */
+    border-image-slice: 30;
+    /* 图片边框分割，可以是数值或者百分比 */
+    /*border-image-repeat: repeat; !* 如何填充边框图片 *!*/
+    border-image-outset: 5;
+    /* 边框图片超出边框宽度 */
+    border-image-width: 30px;
+    /* 边框图片宽度 */
+}
+
+.brand-box-img-title {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'harmony-medium', sans-serif;
+}
+
+#brand-big-box {
+    background-size: cover;
+}
+
+@media (max-width: 960px) {
+    #brand-big-box {
+        background-size: contain;
+    }
+}
+
+.brand-box-img {
+    width: 50%;
+    height: 30px;
+    position: absolute;
+    top: -23px;
+    background-image: url("/website/image/howToPlay/slots/biaoti.png");
+    background-size: contain;
+    /* 背景图片覆盖整个div */
+}
+
+@media (max-width: 960px) {
+    .brand-box-img {
+        height: 30px;
+        top: -16px;
+        width: 80%;
+    }
+}
+
+.brand-div-with-image-border {
+    border-top-width: 10px;
+    /* 边框宽度 */
+    border-image-source: url('/website/image/howToPlay/slots/kuang.png');
+    /* 边框图片路径 */
+    border-image-slice: 30;
+    /* 图片边框分割，可以是数值或者百分比 */
+    /*border-image-repeat: repeat; !* 如何填充边框图片 *!*/
+    border-image-outset: 5;
+    /* 边框图片超出边框宽度 */
+    border-image-width: 30px;
+    /* 边框图片宽度 */
+    /*padding-top: 20px;*/
+    /*padding-bottom: 20px;*/
+    padding: 20px 20px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .brand-div-with-image-border {
+        border-image-width: 20px;
+        /*padding-top: 25px;*/
+        padding-bottom: 20px;
+        height: auto;
+    }
+}
+
+.privacy-box-img-title {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'harmony-medium', sans-serif;
+}
+
+.privacy-box-img {
+    width: 7%;
+    height: 30px;
+    position: absolute;
+    top: -23px;
+    left: -20px;
+    background-image: url("/website/image/howToPlay/slots/biaoti.png");
+    background-size: contain;
+    /* 背景图片覆盖整个div */
+}
+
+@media (max-width: 768px) {
+    .privacy-box-img {
+        width: 20%;
+    }
+}
+
+.privacy-div-with-image-border {
+    /*border-top-width: 10px; !* 边框宽度 *!*/
+    /*border-image-source: url('/website/image/howToPlay/slots/kuang.png'); !* 边框图片路径 *!*/
+    /*border-image-slice: 30; !* 图片边框分割，可以是数值或者百分比 *!*/
+    /*!*border-image-repeat: repeat; !* 如何填充边框图片 *!*!*/
+    /*border-image-outset: 5; !* 边框图片超出边框宽度 *!*/
+    /*border-image-width: 30px; !* 边框图片宽度 *!*/
+    /*padding-top: 20px;*/
+    /*padding-bottom: 20px;*/
+    padding: 20px 20px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .privacy-div-with-image-border {
+        border-image-width: 20px;
+        /*padding-top: 25px;*/
+        padding-bottom: 20px;
+        height: auto;
+    }
+}
+
+.privacy-box {
+    border-top-width: 10px;
+    /* 边框宽度 */
+    border-image-source: url('/website/image/howToPlay/slots/kuang.png');
+    /* 边框图片路径 */
+    border-image-slice: 30;
+    /* 图片边框分割，可以是数值或者百分比 */
+    /*border-image-repeat: repeat; !* 如何填充边框图片 *!*/
+    border-image-outset: 5;
+    /* 边框图片超出边框宽度 */
+    border-image-width: 30px;
+    /* 边框图片宽度 */
+    padding-top: 35px;
+}
+
+@media (max-width: 768px) {
+    .xuanfu {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+}
+
+.two-main {
+    /*background: #6f42c1;*/
+    background-image: url('/website/image/bg1.png');
+    background-size: cover;
+    /* 背景图片覆盖整个div */
+    padding-bottom: 6.16%;
+}
+
+.col-md-6 {
+    padding: 0;
+}
+
+.text-overlay {
+    position: absolute;
+    /*padding: 10px; !* 文字周围的空间 *!*/
+    height: 60%;
+    width: 50%;
+    left: 40%;
+    font-size: 12px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #ffffff;
+    top: 35%;
+}
+
+.box-div {
+    position: relative;
+    display: inline-block;
+}
+
+.three-main {
+    /*background: #6f42c1;*/
+    background-image: url('/website/image/bg2.png');
+    background-size: cover;
+    /* 背景图片覆盖整个div */
+    padding-bottom: 0.87%;
+}
+
+.three-text-overlay {
+    position: absolute;
+    /* height: 60%; */
+    width: 90%;
+    left: 6%;
+    font-size: 12px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #ffffff;
+    top: 58%;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    max-height: 100px;
+    display: -webkit-box;
+}
+
+.bottom-main {
+    /*background: #6f42c1;*/
+    background-image: url('/website/image/bg3.png');
+    background-size: cover;
+    /* 背景图片覆盖整个div */
+    padding-bottom: 1.124%;
+}
+
+.bottom-text {
+    font-size: 12px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #ffffff;
+    line-height: 32px;
+}
+
+.three-one-text-overlay {
+    position: absolute;
+    /* height: 60%; */
+    width: 50%;
+    left: 45%;
+    font-size: 12px;
+    font-family: 'harmony-regular', sans-serif;
+    color: #ffffff;
+    top: 28%;
+    line-height: 25px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .three-one-text-overlay {
+        top: 22%;
+        line-height: 20px;
+        left: 43%;
+        width: 54%;
+        height: 120px;
+        overflow-y: auto;
+        /* 当内容超出div的高度时，显示垂直滚动条 */
+        overflow-x: hidden;
+        /* 隐藏水平滚动条 */
+    }
+}
+
+.box-mt {
+    margin-top: 60px !important;
+}
+
+@media (max-width: 768px) {
+    .box-mt {
+        margin-top: 30px !important;
+    }
+}
+
+.tab-nav-pt {
+    padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+    .tab-nav-pt {
+        padding-top: 40px;
+    }
+}
+
+.brand-box-mt {}
+
+@media (max-width: 768px) {
+    .brand-box-mt {
+        margin-top: 30px !important;
+    }
+}
+
+.title-mt {
+    padding-top: 60px !important;
+}
+
+@media (max-width: 768px) {
+    .title-mt {
+        padding-top: 30px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .head-logo {
+        height: 67px;
+    }
+}
+
+.index-download-mt {
+    padding-top: 80px !important;
+}
+
+@media (max-width: 768px) {
+    .index-download-mt {
+        padding-top: 60px !important;
+    }
+}

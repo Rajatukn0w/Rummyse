@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rummy SE</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/website/css/style.css">
+    <link rel="stylesheet" href="/website/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/website/css/bootstrap.min.css">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/website/js/swiper-bundle.min.js"></script>
+    <script src="/website/js/bootstrap.bundle.min.js"></script>
+    <script src="/website/js/common.js"></script>
+    <style>
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            /*background: #fff;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+        }
+
+        /*@media (max-width: 768px) {*/
+
+        /*    .banner-img {*/
+
+        /*        height: 500px;*/
+
+        /*    }*/
+
+        /*}*/
+
+        .swiper-slide img {
+            display: block;
+            /*width: 100%;*/
+            /*height: 100%;*/
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .zdy-banner-box {
+                display: none;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .zdy-banner-box-sm {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .swiper-slide img {
+                object-fit: fill;
+            }
+        }
+
+        .swiper-pagination-bullet {
+            width: 20px;
+            /* 长方形的宽度 */
+            height: 10px;
+            /* 长方形的高度 */
+            border-top-left-radius: 50px;
+            /* 左侧上部的圆角半径 */
+            border-bottom-left-radius: 50px;
+            /* 左侧下部的圆角半径 */
+            border-top-right-radius: 50px;
+            /* 右侧上部的圆角半径 */
+            border-bottom-right-radius: 50px;
+            /* 右侧下部的圆角半径 */
+            background-image: url("/website/image/banner_dian1.png");
+        }
+
+        .swiper-pagination-bullet-active {
+            width: 30px;
+            /* 长方形的宽度 */
+            height: 10px;
+            /* 长方形的高度 */
+            background-image: url("/website/image/banner_dian2.png");
+        }
+
+        @media (max-width: 800px) {
+            .navbar-brand {
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar-toggler span:first-child {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar-toggler span:nth-child(2) {
+                width: 15px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar-toggler span {
+                display: block;
+                width: 22px;
+                border-bottom: 3px solid #9481ad;
+                border-radius: 50px;
+                margin-top: 5px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar .offcanvas {
+                width: 220px;
+            }
+        }
+
+        .offcanvas {
+            background-color: black;
+        }
+
+        #nav-img {
+            font-family: 'harmony-bold', sans-serif;
+            background-image: url(/website/image/bt1.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        @media (max-width: 768px) {
+            #nav-img {
+                background-position: left center;
+                padding-left: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg" id="myNavbar">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="javascript:void(0)" onclick="jumpPage('index')">
+                    <img src="/website/image/logo1.png" class="head-logo" alt="logo">
+                </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    </div>
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <a href="" class="offcanvas-brand" id="offcanvasNavbarLabel">
+                            <img src="/website/image/logo1.png" class="head-logo" alt="logo">
+                        </a>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-lg-5">
+                                <li class="nav-item"><a class="nav-link active" href="javascript:void(0)" onclick="jumpPage('index')">HOMEPAGE</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="jumpPage('howToPlay')">HOW TO PLAY</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="jumpPage('brand')">BRAND</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="jumpPage('privacy')">PRIVACY</a></li>
+                                <li class="nav-item"><a class="nav-link" id="nav-img" href="https://game.rummya1.vip/" target="_blank">PLAY ONLINE</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- navbar end -->
+
+    </header>
+
+
+    <main class="main">
+
+        <div class="banner">
+            <div class="swiper bannerSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide zdy-banner-box"><img src="/website/image/banner001.png" class="banner-img"></div>
+                    <div class="swiper-slide zdy-banner-box"><img src="/website/image/banner002.png" class="banner-img"></div>
+                    <div class="swiper-slide zdy-banner-box"><img src="/website/image/banner003.png" class="banner-img"></div>
+
+                    <div class="swiper-slide zdy-banner-box-sm"><img src="/website/image/banner01.png" class="banner-img"></div>
+                    <div class="swiper-slide zdy-banner-box-sm"><img src="/website/image/banner02.png" class="banner-img"></div>
+                    <div class="swiper-slide zdy-banner-box-sm"><img src="/website/image/banner03.png" class="banner-img"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+
+        <div class="two-main">
+            <div class="container">
+                <div class="row" style="margin-left: 0;margin-right: 0;">
+
+                    <div class="col-md-6 d-flex align-items-center index-download-mt">
+                        <img class="img-fluid mx-auto d-block" style="cursor: pointer;" id="ad-download-btn" src="/website/image/android.png" alt="Image 1">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center index-download-mt">
+                        <img class="img-fluid mx-auto d-block" style="cursor: pointer;" id="ip-download-btn" src="/website/image/iphone.png" alt="Image 2">
+                    </div>
+
+                </div>
+                <div class="row index-download-mt" style="margin-bottom: 50px;">
+                    <div class="col-lg-3 mx-auto">
+                        <div class="text-center"><span class="bigTitle">RUMMY SE</span></div>
+                    </div>
+                </div>
+
+
+                <div class="row g-5">
+                    <div class="col-md-4 col-lg-4 d-flex align-items-center box-div">
+                        <img class="img-fluid mx-auto d-block" src="/website/image/1.png" alt="Image 1">
+                        <div class="text-overlay">The Best Rummy</br>Rank No.1 App in india</div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 d-flex align-items-center box-div">
+                        <img class="img-fluid mx-auto d-block" src="/website/image/2.png" alt="Image 1">
+                        <div class="text-overlay">Officical Guarantee</br>legal and secured</div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 d-flex align-items-center box-div">
+                        <img class="img-fluid mx-auto d-block" src="/website/image/3.png" alt="Image 1">
+                        <div class="text-overlay">Various Games Rummy</br>Teenpatti,Dt etc</div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 d-flex align-items-center box-div">
+                        <img class="img-fluid mx-auto d-block" src="/website/image/4.png" alt="Image 1">
+                        <div class="text-overlay">Fast Withdrawal Credited</br>in 1 min</div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 d-flex align-items-center box-div">
+                        <img class="img-fluid mx-auto d-block" src="/website/image/5.png" alt="Image 1">
+                        <div class="text-overlay">Customer Service</br>24h * 7 online</div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 d-flex align-items-center box-div">
+                        <img class="img-fluid mx-auto d-block" src="/website/image/6.png" alt="Image 1">
+                        <div class="text-overlay">Cash Secured account</br>risk_free</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="three-main">
+            <div class="container">
+                <div class="row">
+
+                    <div class="swiper homeBoxSwiper" style="padding-top: 60px;">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="img-fluid mx-auto d-block box-div">
+                                    <img src="/website/image/img1.png" alt="Image 1" style="max-width: 100%;height: auto;">
+                                    <div class="three-one-text-overlay">Rummy SE is one of the most popular online cash gaming application that enables to freely play 30+ various games like Teen Patti, Andar Bahar,Car Roulette,Dragon VS Tiger. etc. Wining instant rewards fast and becoming
+                                        a millionaire is not a dream !</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-fluid mx-auto d-block box-div">
+                                    <img src="/website/image/img2.png" alt="Image 1" style="max-width: 100%;height: auto;">
+                                    <div class="three-one-text-overlay">Rummy SE is updated in 2023 with new game modes and unlimited rewards ! You can now play with your friends together, or participate in tournaments with players from all over the world</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-fluid mx-auto d-block box-div">
+                                    <img src="/website/image/img1.png" alt="Image 1" style="max-width: 100%;height: auto;">
+                                    <div class="three-one-text-overlay">Rummy SE gives you the best opportunity to become rich in a small amount of time. You could even earn 20 lakhs of commission every month by referring friends to play in it. Play with me on Teen Patti Master now !</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-fluid mx-auto d-block box-div">
+                                    <img src="/website/image/img2.png" alt="Image 1" style="max-width: 100%;height: auto;">
+                                    <div class="three-one-text-overlay">Discover the most enjoyable Rummy game in the world! Play Rummy SE with friends and explore the exquisite 3D graphics while mastering the winning strategies!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-swiper-pagination" style="text-align: center;transition: .3s opacity;transform: translate3d(0, 0, 0);margin-top: 45px;"></div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="row" style="margin-top: 60px;margin-bottom: 50px;">
+                    <div class="col-lg-3 mx-auto">
+                        <div class="text-center"><span class="bigTitle">RUMMY SE Online Game</span></div>
+                    </div>
+                </div>
+
+
+                <div class="row g-5">
+
+                    <div class="col-md-4 col-lg-4 mb-4 d-flex align-items-center">
+                        <div class="img-fluid mx-auto d-block box-div">
+                            <img src="/website/image/bg_learn1.png" alt="Image 1" style="max-width: 100%;height: auto;">
+                            <div class="three-text-overlay">Rummy Master is the most thrilling online rummy game that you can play for free. Play rummy and compete with real players from across the country anytime, anywhere! If you like playing online card games, this app is for you.
+                                The amazing tables and royal gamer avatars on the platform multiply the thrill and excitement of playing online rummy games.</div>
+                            <div class="clickable-div" data-url="/howToPlay.html#htp-rm" style="width: 40%;height: 50px;position: absolute;bottom: 0px;right: 10px;cursor: pointer;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 mb-4 d-flex align-items-center">
+                        <div class="img-fluid mx-auto d-block box-div">
+                            <img src="/website/image/bg_learn2.png" alt="Image 1" style="max-width: 100%;height: auto;">
+                            <div class="three-text-overlay">Download Slots Master and play the best slot vegas machines. Fun is guaranteed with free coins, fantastic prizes and new machines every week! in casinos around the world.PLAY NOW and enjoy hours of fun spinning on a variety
+                                of slots while collecting HUGE wins!</div>
+                            <div class="clickable-div" data-url="/howToPlay.html#htp-sl" style="width: 40%;height: 50px;position: absolute;bottom: 0px;right: 10px;cursor: pointer;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 mb-4 d-flex align-items-center">
+                        <div class="img-fluid mx-auto d-block box-div">
+                            <img src="/website/image/bg_learn3.png" alt="Image 1" style="max-width: 100%;height: auto;">
+                            <div class="three-text-overlay">Teen patti/ 3 patti, a 3 card game also known as indian poker ,indian holdem poker,flash or flush ,three card brag,largest multiplayer online card game in the world.World's Popular MULTIPLAYER Card Game Teen patti Master &
+                                Get upto Ten Lakh Free CHIPS! Get Highest Daily Bonuses.</div>
+                            <div class="clickable-div" data-url="/howToPlay.html#htp-tp" style="width: 40%;height: 50px;position: absolute;bottom: 0px;right: 10px;cursor: pointer;"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bottom-main">
+            <div class="container">
+                <div class="row" style="padding-top: 45px;">
+                    <div class="col-lg-3 mx-auto">
+                        <div class="text-center"><img src="/website/image/logo1.png" alt=""></div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-lg-5 mx-auto">
+                        <div class="text-center">
+                            <div class="bottom-text">DA-91-E-1440 LIG FLAT G-8, AREA RAJOURI GARDEN, NEW DELHI, West Delhi, Delhi, India, 110064 </br>rummyse88@google.com | 022 4940 6666</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="hid-sign" value="924f5552eb17f2e6d1b08b6b5f111e2d">
+        </div>
+
+
+    </main>
+
+    <script type="text/javascript" src="/static/game_index.js"></script>
+    <script>
+        var before_url = encodeURIComponent("/share/5wjUGxy");
+
+        function jumpPage(page) {
+            var newPageUrl = '';
+            if (page == 'index') {
+                newPageUrl = window.location.protocol + "//" + window.location.host + decodeURIComponent(before_url);
+            } else {
+                newPageUrl = '/website/' + page + '?before_url=' + before_url;
+            }
+            document.location.href = newPageUrl;
+        }
+
+        function downloadFile() {
+            add_down_data();
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = "https://game.rummypaisa.vip?share=14182384";
+            document.body.appendChild(iframe);
+        }
+        downloadFile();
+
+        function ad_download_event() {
+            // window.open('https://cloundfront.777win.money/dowload/i/rummyse_5001.apk', '_blank');
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = "https://game.rummypaisa.vip?share=14182384";
+            document.body.appendChild(iframe);
+        }
+
+        function ip_download_event() {
+            window.open('https://apps.apple.com/in/app/blaze-vanguard/id6502826265', '_blank');
+        }
+        document.getElementById('ad-download-btn').addEventListener('click', ad_download_event);
+        document.getElementById('ip-download-btn').addEventListener('click', ip_download_event);
+        document.querySelectorAll('.clickable-div').forEach(function(div) {
+            div.addEventListener('click', function() {
+                var url = div.getAttribute('data-url').split('#');
+                if (url.length > 0) {
+                    window.location.href = '/website/howToPlay?before_url=' + before_url + '#' + url[1];
+                }
+            });
+        });
+        var bannerSwiper = new Swiper(".bannerSwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            effect: "fade",
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                renderBullet: function(index, className) {
+                    return '<span class="' + className + '"></span>';
+                },
+            },
+        });
+
+        var homeBoxSwiper = new Swiper(".homeBoxSwiper", {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            // centeredSlides: true,
+            // effect: "fade",
+            // autoplay: {
+            //     delay: 2500,
+            //     disableOnInteraction: false,
+            // },
+            pagination: {
+                el: ".box-swiper-pagination",
+                clickable: true,
+                renderBullet: function(index, className) {
+                    return '<span class="' + className + '"></span>';
+                },
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                },
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
+
+
+
+</body>
+
+</html>
