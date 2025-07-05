@@ -458,6 +458,44 @@
 </script>
 
 
+<!-- Supabase Pixel Tracking -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  // ====== YOUR DETAILS HERE ======
+  const SUPABASE_URL = 'https://bbzhdylabnexgpcjmxfz.supabase.co';         // Your Supabase Project URL
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJiemhkeWxhYm5leGdwY2pteGZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NjI1ODgsImV4cCI6MjA2NjIzODU4OH0.UHncNkqmy7hYt9wCpzumT2gRdEcHP3bJcitA20LlqSY';                            // Your Supabase anon public key
+  const TABLE_NAME = 'pixel_clicks_rummyse';               // Your table name
+
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  // Get pixel id from URL param (?pixel=xyz)
+  function getPixelId() {
+    try {
+      const url = new URL(window.location.href);
+      return url.searchParams.get("pixel");
+    } catch (e) { return null; }
+  }
+  const pixelId = getPixelId();
+
+  // Only enable tracking if ?pixel=XYZ is present
+  if (pixelId) {
+    document.addEventListener("DOMContentLoaded", function() {
+      const androidBtn = document.querySelector('a[href="https://renew.sabkagame.com/download/rummyse/rummyse_14182384.apk"]');
+      if (androidBtn) {
+        androidBtn.addEventListener("click", async function() {
+          await supabase.from(TABLE_NAME).insert([
+            {
+              pixel_id: pixelId,
+              timestamp: new Date().toISOString(),
+              url: window.location.pathname
+            }
+          ]);
+        });
+      }
+    });
+  }
+</script>
+
 
 </body>
 
