@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Click Dashboard</title>
+  <style>
+    body { font-family: Arial; background: #f7f7f7; padding: 20px; text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #61de48; }
+  </style>
+</head>
+<body>
+  <h2>Live Click Count by Pixel</h2>
+  <div id="output">Loading...</div>
+
+  <script>
+    const SUPABASE_URL = 'https://mbpgtshsopranuwnmuvh.supabase.co';
+    const SUPABASE_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1icGd0c2hzb3ByYW51d25tdXZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE3MTE2MDksImV4cCI6MjA2NzI4NzYwOX0.RxbW_ug92pdP1PiZ2N3Hf1xsgp_f-cSl8Vtf8rLaXss';
+
+    function fetchClicks() {
+      fetch(`${SUPABASE_URL}/rest/v1/pixel_clicks?select=pixel_id,date,count&order=date.desc&apikey=${SUPABASE_API_KEY}`, {
+        headers: {
+          apikey: SUPABASE_API_KEY,
+          Authorization: `Bearer ${SUPABASE_API_KEY}`,
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.length === 0) {
+          document.getElementById('output').innerText = 'No data yet.';
+          return;
+        }
+        let html = `<table>
+          <tr><th>Pixel ID</th><th>Date</th><th>Clicks</th></tr>
+          ${data.map(row => `<tr>
+            <td>${row.pixel_id}</td>
+            <td>${row.date}</td>
+            <td>${row.count}</td>
+          </tr>`).join('')}
+        </table>`;
+        document.getElementById('output').innerHTML = html;
+      });
+    }
+    fetchClicks();
+    setInterval(fetchClicks, 3000); // Refresh every 3 seconds
+  </script>
+</body>
+</html>
