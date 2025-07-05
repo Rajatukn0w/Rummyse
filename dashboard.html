@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Click Dashboard</title>
+  <style>
+    body { font-family: Arial; background: #f7f7f7; padding: 20px; text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #61de48; }
+  </style>
+</head>
+<body>
+  <h2>Live Click Count by Pixel</h2>
+  <div id="output">Loading...</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const SUPABASE_URL = 'https://bbzhdylabnexgpcjmxfz.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJiemhkeWxhYm5leGdwY2pteGZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NjI1ODgsImV4cCI6MjA2NjIzODU4OH0.UHncNkqmy7hYt9wCpzumT2gRdEcHP3bJcitA20LlqSY';
+    const TABLE_NAME = 'pixel_clicks_rummyse';
+
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    async function loadData() {
+      let { data, error } = await supabase
+        .from(TABLE_NAME)
+        .select('pixel_id, timestamp, url')
+        .order('timestamp', { ascending: false });
+
+      if (error) {
+        document.getElementById("output").innerHTML = "Error loading data.";
+        return;
+      }
+
+      // Count clicks by date + pixel_id
+      let counts = {};
+      for(let row of data) {
+        let date = new Date(row.timestamp).toLocaleDateString();
+        let key = `${date}|${row.pixel_id}`;
+        counts[key] = (counts[key] || 0) + 1;
+      }
+      let html = '<table><tr><th>Date</th><th>Pixel ID</th><th>Clicks</th></tr>';
+      for (let k in counts) {
+        let [date, pixelId] = k.split("|");
+        html += `<tr><td>${date}</td><td>${pixelId}</td><td>${counts[k]}</td></tr>`;
+      }
+      html += '</table>';
+      document.getElementById("output").innerHTML = html;
+    }
+
+    loadData();
+    setInterval(loadData, 5000);
+  </script>
+</body>
+</html>
